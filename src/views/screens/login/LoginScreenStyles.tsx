@@ -24,4 +24,17 @@ export const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     marginVertical: 12,
   },
+  formContainer: {
+    position: 'absolute',
+    bottom: 0,
+    height: '50%',
+    minHeight: 400,
+    width: '100%',
+    backgroundColor: 'rgba(25, 25, 25, 0.95)',
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
+    paddingHorizontal: 24,
+    paddingTop: 12,
+    alignItems: 'center',
+  },
 });

@@ -1,11 +1,20 @@
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import {ImageBackground, Text, View} from 'react-native';
+import {ImageBackground, Text, TextInput, View} from 'react-native';
+import {MainStackParams} from '../../../application/navigation/MainNavigator';
 import Button from '../../components/Button/Button';
+import Input from '../../components/input/Input';
+import ButtonsContainer from './components/ButtonsContainer';
+import {LoginForm} from './components/LoginForm';
 import {styles} from './LoginScreenStyles';
 
-const LoginScreen = () => {
-  const [image, setImage] = useState('');
+interface Props
+  extends NativeStackScreenProps<MainStackParams, 'LoginScreen'> {}
+
+const LoginScreen = ({navigation}: Props) => {
+  const [image, setImage] = useState<string>('');
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -14,13 +23,21 @@ const LoginScreen = () => {
         url: 'popular?api_key=434e1e2de734ff090ab43925f768db57&language=en-US&page=1',
         method: 'GET',
       });
+      console.log('imagen', image);
       setImage(
         `https://image.tmdb.org/t/p/original${data?.results[0].backdrop_path}`,
       );
     })();
   }, []);
 
-  console.log(image);
+  const handleShowForm = () => {
+    setShowForm(!showForm);
+  };
+
+  const handleSubmit = () => {
+    navigation.navigate('HomeScreen');
+  };
+
   return image ? (
     <View style={styles.container}>
       <ImageBackground
@@ -31,23 +48,14 @@ const LoginScreen = () => {
           style={{
             flex: 1,
             flexDirection: 'column',
-            backgroundColor: 'rgba(0,0,0,0.6)',
+            backgroundColor: 'rgba(0,0,0,0.2)',
           }}>
           <Text style={styles.title}>Welcome!</Text>
-          <View style={styles.buttonContainer}>
-            <Button
-              text="Sign Up"
-              variant="primary"
-              accion={() => console.log('sign up')}
-            />
-            <Button
-              text="Log in"
-              variant="secondary"
-              accion={() => console.log('sign up')}
-            />
-            <Text style={styles.link}>Forgot Password?</Text>
-          </View>
+          {!showForm && <ButtonsContainer accionOk={handleShowForm} />}
         </View>
+        {showForm && (
+          <LoginForm handleClose={handleShowForm} handleSubmit={handleSubmit} />
+        )}
       </ImageBackground>
     </View>
   ) : (
