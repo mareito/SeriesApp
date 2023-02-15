@@ -1,2 +1,2 @@
-# movieApp
-Prueba Técnica - Aplicacion de Películas
+# SeriesApp
+Prueba Técnica - Aplicación Series de TV
