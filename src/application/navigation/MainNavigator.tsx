@@ -1,11 +1,12 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../../views/screens/login/LoginScreen';
-import HomeScreen from '../../views/screens/login/HomeScreen';
+import HomeScreen from '../../views/screens/home/HomeScreen';
+import {BottomTabNavigator} from './BottomTabNavigator';
 
 export type MainStackParams = {
   LoginScreen: undefined;
-  HomeScreen: undefined;
+  BottomTabNavigator: undefined;
 };
 
 export const MainNavigator = () => {
@@ -14,7 +15,7 @@ export const MainNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Stack.Navigator>
   );
 };

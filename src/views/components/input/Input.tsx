@@ -5,15 +5,17 @@ interface InputProps {
   name: string;
   placeholder?: string;
   handleChange: (value: string, field: string) => void;
+  value: string;
 }
 
-const Input = ({placeholder, handleChange, name}: InputProps) => {
+const Input = ({placeholder, handleChange, name, value}: InputProps) => {
   return (
     <TextInput
       autoCorrect={false}
       onChangeText={value => handleChange(value, name)}
       placeholder={placeholder}
       placeholderTextColor="#8C8C8C"
+      value={value}
       style={{
         borderBottomWidth: 2,
         borderBottomColor: '#8C8C8C',

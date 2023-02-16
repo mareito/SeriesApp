@@ -14,8 +14,14 @@ const ButtonsContainer = ({accionOk}: ButtonsContainerProps) => {
         text="Sign Up"
         variant="primary"
         accion={() => console.log('sign up')}
+        size="regular"
       />
-      <Button text="Log in" variant="secondary" accion={accionOk} />
+      <Button
+        text="Log in"
+        variant="secondary"
+        accion={accionOk}
+        size="regular"
+      />
       <Text style={styles.link}>Forgot Password?</Text>
     </View>
   );

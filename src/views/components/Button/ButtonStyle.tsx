@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../../globalStyles';
 
 export const styles = StyleSheet.create({
   buttonContainer: {
@@ -8,10 +9,10 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
   },
   buttonPrimary: {
-    backgroundColor: '#FFD233',
+    backgroundColor: colors.YELLOw,
   },
   buttonSecondary: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.WHITE,
   },
   buttonText: {
     alignSelf: 'center',
