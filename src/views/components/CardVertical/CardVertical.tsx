@@ -1,17 +1,10 @@
-import React, {useState} from 'react';
-import {Image, Text, View, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {Image, Text, View} from 'react-native';
 import {BASE_URL_IMAGES_200} from '../../../application/constants/enpoints';
 import {ISerie} from '../../../application/models/viewModels/Serie.model';
 import Button from '../Button/Button';
 import RatingStar from '../CardHorizontal/RatingStar';
 import {styles} from './CardVerticalStyle';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {useDispatch, useSelector} from 'react-redux';
-import {
-  add,
-  remove,
-} from '../../../infrastructure/store/slices/favorites/favoritesSlice';
-import {RootState} from '../../../infrastructure/store/store';
 import IconFavoritos from '../IconFavoritos/IconFavoritos';
 
 interface CardVerticalProps {
