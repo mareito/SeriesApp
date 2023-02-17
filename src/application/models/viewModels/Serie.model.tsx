@@ -2,6 +2,7 @@ export interface ISeason {
   id: number;
   episodeCount: number;
   seasonNumber: number;
+  name: string;
 }
 
 export interface ISerie {
@@ -11,6 +12,7 @@ export interface ISerie {
   score: number;
   backdropImage: string;
   posterImage: string;
+  numberOfSeasons?: number;
 }
 
 export interface ISerieDetails extends ISerie {

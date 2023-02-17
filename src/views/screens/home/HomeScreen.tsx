@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {FlatList, Text, View, SafeAreaView, ScrollView} from 'react-native';
 import {
   getPopularSeries,
   getRecommendations,
@@ -58,7 +58,7 @@ const HomeScreen = ({navigation}: Props) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text style={globalStyles.titulo}>Popular</Text>
         <FlatList
@@ -95,7 +95,7 @@ const HomeScreen = ({navigation}: Props) => {
           bounces
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

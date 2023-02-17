@@ -17,7 +17,6 @@ import {
 } from '../../../application/constants/enpoints';
 import {styles} from './SerieDetailScreenStyles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors, globalStyles} from '../../../globalStyles';
 import RatingStar from '../../components/CardHorizontal/RatingStar';
 import Button from '../../components/Button/Button';
 
@@ -30,7 +29,6 @@ export const SerieDetailScreen = ({navigation, route}: Props) => {
   useEffect(() => {
     (async () => {
       const data = await getSerieDetails(route.params.idSerie);
-      console.log(data?.seasons);
       setSerie(data);
     })();
   }, []);
@@ -55,27 +53,13 @@ export const SerieDetailScreen = ({navigation, route}: Props) => {
               style={{...styles.textBack, marginRight: 20}}></Icon>
             <Text style={styles.textBack}>Popular</Text>
           </TouchableOpacity>
-          <View
-            style={{
-              top: 80,
-              justifyContent: 'center',
-              alignContent: 'center',
-            }}>
+          <View style={styles.imageContainer}>
             <Image
               source={{uri: `${BASE_URL_IMAGES}${serie.posterImage}`}}
               style={styles.image}
             />
           </View>
-          <View
-            style={{
-              position: 'absolute',
-              flex: 0.5,
-              bottom: 0,
-              backgroundColor: colors.BLACK,
-              height: '30%',
-              width: '100%',
-              justifyContent: 'center',
-            }}>
+          <View style={styles.mainContainer}>
             <View style={styles.dataContainer}>
               <Text style={styles.textName}>{serie.name}</Text>
               <View style={styles.score}>

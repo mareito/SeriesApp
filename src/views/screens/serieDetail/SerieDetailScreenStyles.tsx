@@ -18,6 +18,11 @@ export const styles = StyleSheet.create({
     color: colors.WHITE,
     fontSize: 24,
   },
+  imageContainer: {
+    top: 80,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
   image: {height: 390, width: 260, borderRadius: 12, alignSelf: 'center'},
   dataContainer: {
     alignItems: 'center',
@@ -39,5 +44,14 @@ export const styles = StyleSheet.create({
   rating: {
     color: '#8C8C8C',
     marginBottom: 10,
+  },
+  mainContainer: {
+    position: 'absolute',
+    flex: 0.5,
+    bottom: 0,
+    backgroundColor: colors.BLACK,
+    height: '30%',
+    width: '100%',
+    justifyContent: 'center',
   },
 });

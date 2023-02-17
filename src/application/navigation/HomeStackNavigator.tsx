@@ -4,6 +4,8 @@ import HomeScreen from '../../views/screens/home/HomeScreen';
 import {SerieDetailScreen} from '../../views/screens/serieDetail/SerieDetailScreen';
 import {EpisodesScreen} from '../../views/screens/episodes/EpisodesScreen';
 import {ISerie, ISerieDetails} from '../models/viewModels/Serie.model';
+import {colors} from '../../globalStyles';
+import {styles} from '../../views/screens/episodes/EposidesScreenStyles';
 
 export type HomeStackParams = {
   HomeScreen: undefined;
@@ -15,11 +17,19 @@ export const HomeStackNavigator = () => {
   const Stack = createNativeStackNavigator<HomeStackParams>();
 
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{headerShown: true}}
+        options={{
+          headerStyle: {backgroundColor: colors.BLACK},
+          headerShown: true,
+          title: 'Home',
+          headerTitleStyle: {color: colors.WHITE},
+        }}
       />
       <Stack.Screen
         name="SerieDetailScreen"
