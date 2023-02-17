@@ -6,6 +6,9 @@ import {EpisodesScreen} from '../../views/screens/episodes/EpisodesScreen';
 import {ISerie, ISerieDetails} from '../models/viewModels/Serie.model';
 import {colors} from '../../globalStyles';
 import {styles} from '../../views/screens/episodes/EposidesScreenStyles';
+import {Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {HeaderIcon} from '../../views/components/HeaderIcon/HeaderIcon';
 
 export type HomeStackParams = {
   HomeScreen: undefined;
@@ -29,6 +32,8 @@ export const HomeStackNavigator = () => {
           headerShown: true,
           title: 'Home',
           headerTitleStyle: {color: colors.WHITE},
+          headerTitleAlign: 'center',
+          headerRight: props => <HeaderIcon />,
         }}
       />
       <Stack.Screen

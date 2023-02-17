@@ -5,6 +5,8 @@ import {colors} from '../../globalStyles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FavoritesScreen from '../../views/screens/favorites/FavoritesScreen';
 import {RecentStackNavigator} from './RecentStackNavigator';
+import {TouchableOpacity} from 'react-native';
+import {HeaderIcon} from '../../views/components/HeaderIcon/HeaderIcon';
 
 export const BottomTabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -41,6 +43,11 @@ export const BottomTabNavigator = () => {
         name="FavoritesScreen"
         component={FavoritesScreen}
         options={{
+          headerStyle: {backgroundColor: colors.BLACK},
+          headerShown: true,
+          headerTitleStyle: {color: colors.WHITE},
+          headerTitleAlign: 'center',
+          headerRight: props => <HeaderIcon />,
           title: 'Favorites',
           tabBarIcon: ({focused}) => (
             <Icon
