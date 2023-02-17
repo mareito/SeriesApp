@@ -12,6 +12,6 @@ export const validateData = (
       } else {
         resolve(false);
       }
-    }, 1000);
+    }, 300);
   });
 };

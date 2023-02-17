@@ -1,41 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import {
-  FlatList,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import {colors} from '../../../globalStyles';
+import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
+import {useSelector} from 'react-redux';
 
 import {ISerie} from '../../../application/models/viewModels/Serie.model';
 import {getPopularSeries} from '../../../infrastructure/api/seriesApi';
+import {RootState} from '../../../infrastructure/store/store';
 import {CardVertical} from '../../components/CardVertical/CardVertical';
 
 const FavoritesScreen = () => {
-  const [page, setPage] = useState(1);
-  const [series, setSeries] = useState<ISerie[]>([]);
+  const favorites = useSelector(
+    (state: RootState) => state.favorites.favorites,
+  );
 
-  useEffect(() => {
-    (async () => {
-      if (page === 1) setSeries([]);
-      await consultaData();
-    })();
-  }, [page]);
-
-  const consultaData = async () => {
-    try {
-      const data = await getPopularSeries(page);
-      setSeries(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={series}
+        data={favorites}
         renderItem={({item}) => (
           <CardVertical key={`card-${item.id}`} serie={item} />
         )}

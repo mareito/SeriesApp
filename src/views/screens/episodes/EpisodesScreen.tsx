@@ -41,7 +41,7 @@ export const EpisodesScreen = ({navigation, route}: Props) => {
       <ScrollView>
         <HeaderEpisodes
           goBack={() => navigation.pop()}
-          addFavorites={() => console.log('adicionar a favoritos')}
+          serie={serie}
           loading={loading}
           serieName={serie.name}
           key={`epHeader${serie.id}`}
